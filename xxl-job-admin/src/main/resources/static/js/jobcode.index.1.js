@@ -36,16 +36,16 @@ $(function() {
 		var glueSource = codeEditor.getValue();
 		var glueRemark = $("#glueRemark").val();
 		
-		if (!glueRemark) {
-			layer.open({
-				title: I18n.system_tips,
-                btn: [ I18n.system_ok],
-				content: I18n.system_please_input + I18n.jobinfo_glue_remark ,
-				icon: '2'
-			});
-			return;
-		}
-		if (glueRemark.length <4 || glueRemark.length > 100) {
+		// if (!glueRemark) {
+		// 	layer.open({
+		// 		title: I18n.system_tips,
+        //         btn: [ I18n.system_ok],
+		// 		content: I18n.system_please_input + I18n.jobinfo_glue_remark ,
+		// 		icon: '2'
+		// 	});
+		// 	return;
+		// }
+		if (glueRemark.length <0 || glueRemark.length > 100) {
 			layer.open({
 				title: I18n.system_tips ,
                 btn: [ I18n.system_ok ],
