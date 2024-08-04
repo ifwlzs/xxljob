@@ -8,7 +8,7 @@
 
 		<result column="job_group" property="jobGroup" />
 		<result column="job_id" property="jobId" />
-
+		<result column="job_desc" property="jobDesc" />
 		<result column="executor_address" property="executorAddress" />
 		<result column="executor_handler" property="executorHandler" />
 	    <result column="executor_param" property="executorParam" />
@@ -30,6 +30,7 @@
 		t.id,
 		t.job_group,
 		t.job_id,
+		t2.job_desc,
 		t.executor_address,
 		t.executor_handler,
 		t.executor_param,
@@ -46,7 +47,7 @@
 	
 	<select id="pageList" resultMap="XxlJobLog">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_log AS t
+		FROM xxl_job_log AS t left join xxl_job_info t2 on t.job_id = t2.id
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
 			<if test="jobId==0 and jobGroup gt 0">
 				AND t.job_group = #{jobGroup}
@@ -80,7 +81,7 @@
 	
 	<select id="pageListCount" resultType="int">
 		SELECT count(1)
-		FROM xxl_job_log AS t
+		FROM xxl_job_log AS t left join xxl_job_info t2 on t.job_id = t2.id
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
 			<if test="jobId==0 and jobGroup gt 0">
 				AND t.job_group = #{jobGroup}
@@ -112,7 +113,7 @@
 	
 	<select id="load" parameterType="java.lang.Long" resultMap="XxlJobLog">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_log AS t
+		FROM xxl_job_log AS t left join xxl_job_info t2 on t.job_id = t2.id
 		WHERE t.id = #{id}
 	</select>
 
@@ -260,7 +261,7 @@
 	</select>
 	<!--
 	SELECT t.id
-	FROM xxl_job_log AS t
+	FROM xxl_job_log AS t left join xxl_job_info t2 on t.job_id = t2.id
 	WHERE t.trigger_code = 200
 		and t.handle_code = 0
 		and t.trigger_time <![CDATA[ <= ]]> #{losedTime}

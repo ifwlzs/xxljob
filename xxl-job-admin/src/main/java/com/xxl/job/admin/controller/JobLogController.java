@@ -90,7 +90,7 @@ public class JobLogController {
 	@ResponseBody
 	public Map<String, Object> pageList(HttpServletRequest request,
 										@RequestParam(required = false, defaultValue = "0") int start,
-										@RequestParam(required = false, defaultValue = "10") int length,
+										@RequestParam(required = false, defaultValue = "100") int length,
 										int jobGroup, int jobId, int logStatus, String filterTime) {
 
 		// valid permission
