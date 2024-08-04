@@ -4,6 +4,7 @@
 <mapper namespace="com.xxl.job.admin.dao.XxlJobLogDao">
 	
 	<resultMap id="XxlJobLog" type="com.xxl.job.admin.core.model.XxlJobLog" >
+		<result column="row_num" property="rowNum" />
 		<result column="id" property="id" />
 
 		<result column="job_group" property="jobGroup" />
@@ -27,6 +28,7 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
+		ROW_NUMBER() OVER () AS row_num,
 		t.id,
 		t.job_group,
 		t.job_id,

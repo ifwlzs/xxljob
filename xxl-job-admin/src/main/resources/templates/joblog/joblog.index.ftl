@@ -86,6 +86,7 @@
 			              	<table id="joblog_list" class="table table-bordered table-striped display" width="100%" >
 				                <thead>
 					            	<tr>
+                                        <th name="rowNum" >${I18n.system_row_num}</th>
                                         <th name="jobId" >${I18n.jobinfo_field_id}</th>
                                         <th name="jobGroup" >jobGroup</th>
                                         <th name="jobDesc" >${I18n.jobinfo_field_jobdesc}</th>

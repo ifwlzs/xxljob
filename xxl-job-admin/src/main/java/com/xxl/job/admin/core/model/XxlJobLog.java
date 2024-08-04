@@ -9,6 +9,7 @@ import java.util.Date;
 public class XxlJobLog {
 	
 	private long id;
+	private long rowNum; //行号
 	
 	// job info
 	private int jobGroup;
@@ -96,6 +97,14 @@ public class XxlJobLog {
 
 	public void setExecutorShardingParam(String executorShardingParam) {
 		this.executorShardingParam = executorShardingParam;
+	}
+
+	public long getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(long rowNum) {
+		this.rowNum = rowNum;
 	}
 
 	public int getExecutorFailRetryCount() {

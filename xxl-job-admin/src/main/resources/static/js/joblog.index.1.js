@@ -81,6 +81,7 @@ $(function() {
             type:"post",
 	        data : function ( d ) {
 	        	var obj = {};
+				obj.rowNum = $('#rowNum').val();
 	        	obj.jobGroup = $('#jobGroup').val();
 	        	obj.jobId = $('#jobId').val();
 				obj.jobDesc = $('#jobDesc').val();
@@ -95,6 +96,14 @@ $(function() {
 	    "ordering": false,
 	    //"scrollX": false,
 	    "columns": [
+					{
+						"data": 'rowNum',
+						"visible" : true,
+						"width":'5%',
+						formatter: function (data, type, row) {
+							return data;
+						}
+					},
 					{
 						"data": 'jobId',
 						"visible" : true,
@@ -118,7 +127,7 @@ $(function() {
 					{
 						"data": 'jobDesc',
 						"visible" : true,
-						"width":'15%',
+						"width":'20%',
 						"render": function ( data, type, row ) {
 							return data;
 						}
@@ -154,14 +163,14 @@ $(function() {
 					},
 	                { 
 	                	"data": 'handleTime',
-                        "width":'20%',
+                        "width":'10%',
 	                	"render": function ( data, type, row ) {
 	                		return data?moment(data).format("YYYY-MM-DD HH:mm:ss"):"";
 	                	}
 	                },
 	                {
 						"data": 'handleCode',
-                        "width":'10%',
+                        "width":'5%',
 						"render": function ( data, type, row ) {
                             var html = data;
                             if (data == 200) {
