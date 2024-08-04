@@ -5,6 +5,8 @@ $(function() {
 		"deferRender": true,
 		"processing" : true,
 		"serverSide": true,
+		"pageLength": 100,
+		"lengthMenu": [10,25,50,100,200,500],
 		"ajax": {
 			url: base_url + "/jobgroup/pageList",
 			type:"post",
